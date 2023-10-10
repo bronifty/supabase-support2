@@ -45,7 +45,7 @@ cp sample.env .env
 ```sh
 yarn && yarn dev
 ```
-- navigate to [supabase-web/]
+- navigate to [supabase-web/](http://localhost:5173/)
 
 
 - [supabase docs edge function troubleshooting](https://supabase.com/docs/guides/functions/troubleshooting)

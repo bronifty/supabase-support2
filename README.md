@@ -45,7 +45,9 @@ cp sample.env .env
 ```sh
 yarn && yarn dev
 ```
-- navigate to [supabase-web/](http://localhost:5173/)
+- navigate to [supabase-web/](http://localhost:5173/) or wherever you are serving the web from (defaults to port 5173)
+- go to the /corsEdgeFunctionLocal link and test the get logged in user from local edge function button and open the browser inspector to view the logs.
+- if you are getting a cors error, you need to secure the functions server endpoint with tls/ssl; use a reverse proxy like ngrok, caddy, or my favorite, the built in cloudlfare tunnel extension in vs code. 
 
 
 - [supabase docs edge function troubleshooting](https://supabase.com/docs/guides/functions/troubleshooting)

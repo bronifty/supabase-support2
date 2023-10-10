@@ -1,6 +1,19 @@
 # Supabase Tech Support Cases
 
 1. Auth & User Management
+- init the web app
+```sh
+cd supabase-web 
+cp sample.env .env
+```
+- update .env with your project's url & anon key
+```sh
+yarn && yarn dev
+```
+- navigate to the signUp /signUpWithEmailPassword and fill in the credentials, confirm email
+- navigate to the signIn /signInWithEmailPassword
+- navigate to the signOut /signOut
+- now check whether you can sign in without password; navigate to //signInWithOTPEmail to get an OTP/magic link in your email
 
 2. JWT Session Tokens
 

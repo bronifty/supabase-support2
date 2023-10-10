@@ -8,7 +8,8 @@ export async function action({ request, params }) {
       error: userError,
     } = await supabase.auth.getUser();
     console.log("User:", user);
-    const response = await fetch("https://orange-puts-shorts-conclusions.trycloudflare.com/functions/v1/cors", {
+    // functions endpoint needs to be reverse proxied by ssl if cors error
+    const response = await fetch("http://localhost:54321/functions/v1/cors", { 
       method: "POST",
       headers: {
         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0`,

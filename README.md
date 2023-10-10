@@ -61,7 +61,17 @@ yarn && yarn dev
 - navigate to [supabase-web/](http://localhost:5173/) or wherever you are serving the web from (defaults to port 5173)
 - go to the /corsEdgeFunctionLocal link and test the get logged in user from local edge function button and open the browser inspector to view the logs.
 - if you are getting a cors error, you need to secure the functions server endpoint with tls/ssl; use a reverse proxy like ngrok, caddy, or my favorite, the built in cloudlfare tunnel extension in vs code. 
-
+- edit [./supabase-web/src/corsEdgeFunctionLocal.jsx](./supabase-web/src/routes/corsEdgeFunctionLocal.jsx); update your fetch domain to the secure endpoint reverse proxied by your tunnel (keep the path /functions/v1/cors) 
+```js
+const response = await fetch("https://antonio-entries-anderson-relying.trycloudflare.com/functions/v1/cors", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0`,
+        // Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`,
+      },
+      body: JSON.stringify({ name: user.email }),
+    });
+```
 
 - [supabase docs edge function troubleshooting](https://supabase.com/docs/guides/functions/troubleshooting)
 - [cors issue supabase edge function example](https://github.com/supabase/supabase/blob/master/examples/edge-functions/supabase/functions/browser-with-cors/index.ts)
